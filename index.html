@@ -4,17 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Elisa & Kevin – 29 Aug 2026</title>
-
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --accent: #d96060;
       --bg: #fffaf8;
       --text: #333;
     }
-
     body {
       margin: 0;
       font-family: 'Lato', sans-serif;
@@ -22,7 +19,6 @@
       color: var(--text);
       scroll-behavior: smooth;
     }
-
     header {
       background: #fff;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -34,58 +30,48 @@
       justify-content: space-between;
       padding: 1rem 2rem;
     }
-
     header h1 {
       font-family: 'Playfair Display', serif;
       margin: 0;
       font-size: 1.2rem;
     }
-
     header nav a {
       margin-left: 1rem;
       text-decoration: none;
       color: var(--text);
       font-weight: 600;
     }
-
-    /* Hero section */
+    /* Hero section with two columns */
     .hero {
+      display: flex;
+      min-height: 90vh;
+      width: 100%;
+    }
+    .hero-img {
+      flex: 1;
       background-image: url('hero.jpg');
       background-size: cover;
       background-position: center;
-      height: 90vh;
+    }
+    .hero-info {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
-      color: white;
-      text-align: center;
-      position: relative;
+      padding: 2rem;
+      background-color: rgba(255,255,255,0.8);
+      color: var(--text);
+      text-align: left;
     }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0);
-    }
-
-    .hero h2, .hero p, .hero button {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h2 {
+    .hero-info h2 {
       font-family: 'Playfair Display', serif;
       font-size: 3rem;
       margin: 0;
     }
-
-    .hero p {
+    .hero-info p {
       font-size: 1.1rem;
       margin-top: 0.5rem;
     }
-
     .btn {
       background-color: var(--accent);
       color: white;
@@ -96,11 +82,11 @@
       font-weight: 600;
       cursor: pointer;
       transition: background 0.3s ease;
+      width: fit-content;
     }
-
-    .btn:hover { background-color: #b84d4d; }
-
-    /* Countdown */
+    .btn:hover {
+      background-color: #b84d4d;
+    }
     #countdown {
       margin-top: 1rem;
       font-weight: 700;
@@ -111,25 +97,20 @@
       border-radius: 8px;
       display: inline-block;
     }
-
-    /* Our moments */
     section {
       padding: 3rem 2rem;
       text-align: center;
     }
-
     h3 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       margin-bottom: 2rem;
     }
-
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-
     .gallery img {
       width: 100%;
       border-radius: 12px;
@@ -137,19 +118,16 @@
       transform: translateY(40px);
       transition: opacity 0.8s ease, transform 0.8s ease;
     }
-
     .gallery img.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
     footer {
       background: #f8f8f8;
       padding: 2rem;
       text-align: center;
       font-size: 0.9rem;
     }
-
     /* Music button */
     #music-btn {
       position: fixed;
@@ -166,46 +144,47 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       z-index: 1000;
     }
-
     #music-btn.paused {
       opacity: 0.7;
     }
-
-    @media(max-width:600px){
-      .hero h2 { font-size: 2.3rem; }
+    @media(max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-info {
+        text-align: center;
+      }
     }
   </style>
 </head>
-
 <body>
-
   <header>
-    <h1>Elisa &amp; Kevin</h1>
+    <h1>Elisa & Kevin</h1>
     <nav>
       <a href="#gallery">Gallery</a>
       <a href="#rsvp">RSVP</a>
     </nav>
   </header>
-
   <section class="hero">
-    <h2>Elisa &amp; Kevin</h2>
-    <p>29 August 2026 · Sestri Levante (Liguria, Italy)</p>
-    <div id="countdown"></div>
-    <button class="btn">Confirm attendance</button>
+    <div class="hero-img"></div>
+    <div class="hero-info">
+      <h2>Elisa & Kevin</h2>
+      <p>29 August 2026 · Sestri Levante (Liguria, Italy)</p>
+      <div id="countdown"></div>
+      <button class="btn">Confirm attendance</button>
+    </div>
   </section>
-
   <section id="gallery">
     <h3>Our moments</h3>
     <div class="gallery">
-      <img src="photo1.jpg" alt="Elisa &amp; Kevin">
-      <img src="photo2.jpg" alt="Elisa &amp; Kevin">
-      <img src="photo3.jpg" alt="Elisa &amp; Kevin">
-      <img src="photo4.jpg" alt="Elisa &amp; Kevin">
-      <img src="photo5.jpg" alt="Elisa &amp; Kevin">
-      <img src="photo6.jpg" alt="Elisa &amp; Kevin">
+      <img src="photo1.jpg" alt="Elisa & Kevin">
+      <img src="photo2.jpg" alt="Elisa & Kevin">
+      <img src="photo3.jpg" alt="Elisa & Kevin">
+      <img src="photo4.jpg" alt="Elisa & Kevin">
+      <img src="photo5.jpg" alt="Elisa & Kevin">
+      <img src="photo6.jpg" alt="Elisa & Kevin">
     </div>
   </section>
-
   <section id="rsvp">
     <h3>Confirm attendance</h3>
     <p>
@@ -222,20 +201,16 @@
       <button class="btn">Send</button>
     </p>
   </section>
-
   <footer>
     © 2026 Elisa & Kevin · Sestri Levante
   </footer>
-
   <!-- Background Music -->
   <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c28d03b84d.mp3?filename=wedding-day-11254.mp3" autoplay loop></audio>
   <button id="music-btn" title="Play music">❤️</button>
-
   <script>
     // Countdown
     const timer = document.getElementById("countdown");
     const target = new Date("2026-08-29T00:00:00").getTime();
-
     function updateCountdown() {
       const now = new Date().getTime();
       const diff = target - now;
@@ -251,7 +226,6 @@
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
-
     // Scroll animation
     const imgs = document.querySelectorAll('.gallery img');
     const observer = new IntersectionObserver(entries => {
@@ -260,12 +234,10 @@
       });
     }, { threshold: 0.1 });
     imgs.forEach(img => observer.observe(img));
-
     // Music controls
     const music = document.getElementById("bg-music");
     const btn = document.getElementById("music-btn");
     music.volume = 0.5;
-
     btn.addEventListener("click", () => {
       if (music.paused) {
         music.play();
@@ -275,7 +247,6 @@
         btn.classList.add("paused");
       }
     });
-
     music.addEventListener("ended", () => btn.classList.add("paused"));
   </script>
 </body>
