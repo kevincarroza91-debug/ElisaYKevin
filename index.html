@@ -4,141 +4,158 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Elisa & Kevin – 29 Aug 2026</title>
+
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
 <style>
 :root { --accent:#d96060; --bg:#fffaf8; --text:#333; }
-body { margin:0; font-family:'Lato', sans-serif; background-color: var(--bg); color: var(--text); scroll-behavior:smooth; }
+body { margin:0; font-family:'Lato',sans-serif; background:var(--bg); color:var(--text); scroll-behavior:smooth; }
 header { background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.05); position:sticky; top:0; z-index:10; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem; }
-header h1 { font-family:'Playfair Display', serif; margin:0; font-size:1.2rem; }
+header h1 { font-family:'Playfair Display',serif; margin:0; font-size:1.2rem; }
 header nav a { margin-left:1rem; text-decoration:none; color:var(--text); font-weight:600; }
-.hero { display:flex; min-height:90vh; width:100%; }
-.hero-img { flex:1; background-image:url('hero.jpg'); background-size:cover; background-position:center; }
-.hero-info { flex:1; display:flex; flex-direction:column; justify-content:center; padding:2rem; background-color:rgba(255,255,255,0.8); color:var(--text); text-align:left; }
-.hero-info h2 { font-family:'Playfair Display', serif; font-size:3rem; margin:0; }
-.hero-info p { font-size:1.1rem; margin-top:0.5rem; }
-.btn { background-color: var(--accent); color:white; border:none; border-radius:30px; padding:12px 28px; margin-top:1.5rem; font-weight:600; cursor:pointer; transition:background 0.3s ease; width:fit-content; }
-.btn:hover { background-color:#b84d4d; }
-#countdown { margin-top:1rem; font-weight:700; font-size:1.2rem; background:rgba(255,255,255,0.7); color:#000; padding:8px 16px; border-radius:8px; display:inline-block; }
 section { padding:3rem 2rem; text-align:center; }
-h3 { font-family:'Playfair Display', serif; font-size:2rem; margin-bottom:2rem; }
-.gallery, .adventures-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap:20px; }
-.gallery img, .adventures-grid img { width:100%; border-radius:12px; opacity:0; transform: translateY(40px); transition:opacity 0.8s ease, transform 0.8s ease; cursor:pointer; }
-.visible { opacity:1 !important; transform: translateY(0) !important; }
+h3 { font-family:'Playfair Display',serif; font-size:2rem; margin-bottom:2rem; }
+
+.hero-text h2 { font-family:'Playfair Display',serif; font-size:3rem; margin-bottom:0.5rem; }
+.hero-text p { font-size:1.1rem; margin-bottom:1rem; }
+.btn { background:var(--accent); color:white; border:none; border-radius:30px; padding:12px 28px; font-weight:600; cursor:pointer; transition:background 0.3s ease; }
+.btn:hover { background:#b84d4d; }
+#countdown { display:inline-block; margin-top:1rem; font-weight:700; font-size:1.2rem; background:rgba(255,255,255,0.7); color:#000; padding:8px 16px; border-radius:8px; }
+
+.gallery, .adventures-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+.gallery img, .adventures-grid img, .hero-banner img { width:100%; border-radius:12px; opacity:0; transform:translateY(40px); transition:opacity 0.8s ease,transform 0.8s ease; cursor:pointer; }
+.visible { opacity:1 !important; transform:translateY(0) !important; }
+
 footer { background:#f8f8f8; padding:2rem; text-align:center; font-size:0.9rem; }
+
 #music-btn { position:fixed; bottom:20px; right:20px; background:var(--accent); border:none; border-radius:50%; width:50px; height:50px; color:white; font-size:1.4rem; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:1000; }
 #music-btn.paused { opacity:0.7; }
+
 .lightbox { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:none; align-items:center; justify-content:center; z-index:2000; }
 .lightbox img { max-width:90%; max-height:80%; border-radius:10px; }
 .lightbox span { position:absolute; top:20px; right:30px; font-size:3rem; color:white; cursor:pointer; }
-@media(max-width:768px){ .hero { flex-direction:column; } .hero-info { text-align:center; } }
+
+@media(max-width:768px){ .hero-text h2{font-size:2.2rem;} }
 </style>
 </head>
+
 <body>
 <header>
- <h1>Elisa & Kevin</h1>
- <nav>
-  <a href="#gallery">Gallery</a>
-  <a href="#adventures">Adventures</a>
-  <a href="#rsvp">RSVP</a>
- </nav>
+  <h1>Elisa &amp; Kevin</h1>
+  <nav>
+    <a href="#gallery">Gallery</a>
+    <a href="#adventures">Adventures</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
 </header>
-<section class="hero">
- <div class="hero-img"></div>
- <div class="hero-info">
-  <h2>Elisa & Kevin</h2>
+
+<section class="hero-text">
+  <h2>Elisa &amp; Kevin</h2>
   <p>29 August 2026 · Sestri Levante (Liguria, Italy)</p>
-  <div id="countdown"></div>
+  <div id="countdown"></div><br>
   <button class="btn">Confirm attendance</button>
- </div>
 </section>
+
+<!-- Hero banner photo -->
+<section class="hero-banner">
+  <img src="https://raw.githubusercontent.com/kevincarroza91-debug/ElisaYKevin/main/assets/hero.jpg" alt="Elisa & Kevin" />
+</section>
+
+<!-- Our moments -->
 <section id="gallery">
- <h3>Our moments</h3>
- <div class="gallery">
-  <img src="photo1.jpg" alt="Elisa & Kevin">
-  <img src="photo2.jpg" alt="Elisa & Kevin">
-  <img src="photo3.jpg" alt="Elisa & Kevin">
-  <img src="photo4.jpg" alt="Elisa & Kevin">
-  <img src="photo5.jpg" alt="Elisa & Kevin">
-  <img src="photo6.jpg" alt="Elisa & Kevin">
- </div>
+  <h3>Our moments</h3>
+  <div class="gallery">
+    <img src="photo1.jpg" alt="Elisa & Kevin">
+    <img src="photo2.jpg" alt="Elisa & Kevin">
+    <img src="photo3.jpg" alt="Elisa & Kevin">
+    <img src="photo4.jpg" alt="Elisa & Kevin">
+    <img src="photo5.jpg" alt="Elisa & Kevin">
+    <img src="photo6.jpg" alt="Elisa & Kevin">
+  </div>
 </section>
+
+<!-- Adventures together -->
 <section id="adventures">
- <h3>Adventures together</h3>
- <div style="max-width:900px;margin:0 auto;padding:1rem;">
-  <img src="E48755F4-989B-40BE-894B-DAECB663C8DA_1_105_c.jpeg" alt="Main adventure photo" class="adventure-main" style="width:100%; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.15); cursor:pointer;">
- </div>
- <div class="adventures-grid">
-  <img src="40D3A0DB-9758-4DFC-89FC-F0D19116D744.heic" alt="Adventures">
-  <img src="FD65E7D5-554C-47BE-BD9B-A547268DAB76_4_5005_c.jpeg" alt="Adventures">
-  <img src="C4CF3062-F4D2-41F1-96A2-015A65D6BA0B_1_105_c.jpeg" alt="Adventures">
-  <img src="2F7F1459-C4D1-4A91-9314-19E30E76C061.jpeg" alt="Adventures">
-  <img src="0D7CCCEE-893C-46DC-BEAB-1218AC8F54DB.jpeg" alt="Adventures">
- </div>
+  <h3>Adventures together</h3>
+  <div style="max-width:900px;margin:0 auto;padding:1rem;">
+    <img src="https://raw.githubusercontent.com/kevincarroza91-debug/ElisaYKevin/main/assets/adventure-main.jpg" alt="Elisa & Kevin" class="adventure-main" style="width:100%;border-radius:15px;box-shadow:0 5px 15px rgba(0,0,0,0.15);cursor:pointer;">
+  </div>
+  <div class="adventures-grid">
+    <img src="https://raw.githubusercontent.com/kevincarroza91-debug/ElisaYKevin/main/assets/adventure1.jpg" alt="Elisa & Kevin">
+    <img src="https://raw.githubusercontent.com/kevincarroza91-debug/ElisaYKevin/main/assets/adventure2.jpg" alt="Elisa & Kevin">
+    <img src="https://raw.githubusercontent.com/kevincarroza91-debug/ElisaYKevin/main/assets/adventure3.jpg" alt="Elisa & Kevin">
+    <img src="https://raw.githubusercontent.com/kevincarroza91-debug/ElisaYKevin/main/assets/adventure4.jpg" alt="Elisa & Kevin">
+  </div>
 </section>
+
+<!-- RSVP -->
 <section id="rsvp">
- <h3>Confirm attendance</h3>
- <p>
-  Name *<br><input type="text"><br><br>
-  Email *<br><input type="email"><br><br>
-  Will you attend?<br>
-  <select><option>Yes</option><option>No</option><option>Maybe</option></select><br><br>
-  Allergies or food intolerances<br>
-  <textarea></textarea><br>
-  <button class="btn">Send</button>
- </p>
+  <h3>Confirm attendance</h3>
+  <p>
+    Name *<br><input type="text"><br><br>
+    Email *<br><input type="email"><br><br>
+    Will you attend?<br>
+    <select><option>Yes</option><option>No</option><option>Maybe</option></select><br><br>
+    Allergies or food intolerances<br>
+    <textarea></textarea><br>
+    <button class="btn">Send</button>
+  </p>
 </section>
+
 <footer>© 2026 Elisa & Kevin · Sestri Levante</footer>
+
 <!-- Background Music -->
 <audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c28d03b84d.mp3?filename=wedding-day-11254.mp3"></audio>
 <button id="music-btn" title="Play music">❤️</button>
+
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox">
- <img id="lightbox-img" src="#" alt="Expanded">
- <span id="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="#" alt="Expanded">
+  <span id="lightbox-close">&times;</span>
 </div>
+
 <script>
- // Countdown
- const timer = document.getElementById("countdown");
- const target = new Date("2026-08-29T00:00:00").getTime();
- function updateCountdown() {
-   const now = new Date().getTime();
-   const diff = target - now;
-   if (diff <= 0) { timer.innerHTML = "It's our wedding day 💍"; return; }
-   const days = Math.floor(diff/(1000*60*60*24));
-   const hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-   const mins = Math.floor((diff%(1000*60*60))/(1000*60));
-   const secs = Math.floor((diff%(1000*60))/1000);
-   timer.innerHTML = `${days} days ${hours}h ${mins}m ${secs}s`;
- }
- setInterval(updateCountdown,1000); updateCountdown();
- // Scroll animation
- const imgs = document.querySelectorAll('.gallery img, .adventures-grid img, .adventure-main');
- const observer = new IntersectionObserver(entries => {
-   entries.forEach(entry => {
-     if(entry.isIntersecting) entry.target.classList.add('visible');
-   });
- }, {threshold:0.1});
- imgs.forEach(img => observer.observe(img));
- // Music controls
- const music = document.getElementById("bg-music");
- const btn = document.getElementById("music-btn");
- music.volume = 0.5;
- btn.addEventListener("click", () => {
-   if (music.paused) { music.play(); btn.classList.remove("paused"); } else { music.pause(); btn.classList.add("paused"); }
+// Countdown
+const timer=document.getElementById("countdown");
+const target=new Date("2026-08-29T00:00:00").getTime();
+function updateCountdown(){
+ const now=new Date().getTime();
+ const diff=target-now;
+ if(diff<=0){timer.innerHTML="It's our wedding day 💍";return;}
+ const d=Math.floor(diff/(1000*60*60*24));
+ const h=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+ const m=Math.floor((diff%(1000*60*60))/(1000*60));
+ const s=Math.floor((diff%(1000*60))/1000);
+ timer.innerHTML=`${d} days ${h}h ${m}m ${s}s`;
+}
+setInterval(updateCountdown,1000);updateCountdown();
+
+// Scroll fade animation
+const imgs=document.querySelectorAll('.gallery img,.adventures-grid img,.hero-banner img');
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.1});
+imgs.forEach(i=>observer.observe(i));
+
+// Music controls
+const music=document.getElementById("bg-music");
+const btn=document.getElementById("music-btn");
+music.volume=0.5;
+btn.addEventListener("click",()=>{if(music.paused){music.play();btn.classList.remove("paused");}else{music.pause();btn.classList.add("paused");}});
+music.addEventListener("ended",()=>btn.classList.add("paused"));
+
+// Lightbox
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lightbox-img');
+document.querySelectorAll('.adventures-grid img,.adventure-main').forEach(img=>{
+ img.addEventListener('click',e=>{
+   lbImg.src=e.target.src;
+   lb.style.display='flex';
  });
- music.addEventListener("ended", () => btn.classList.add("paused"));
- // Lightbox
- const lightbox = document.getElementById('lightbox');
- const lightboxImg = document.getElementById('lightbox-img');
- const closeBtn = document.getElementById('lightbox-close');
- document.querySelectorAll('.adventures-grid img, .adventure-main').forEach(item => {
-   item.addEventListener('click', (e) => {
-     lightboxImg.src = e.target.src;
-     lightbox.style.display = 'flex';
-   });
- });
- closeBtn.addEventListener('click', () => { lightbox.style.display = 'none'; });
- lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.style.display = 'none'; });
+});
+document.getElementById('lightbox-close').onclick=()=>lb.style.display='none';
+lb.addEventListener('click',e=>{if(e.target===lb)lb.style.display='none';});
 </script>
 </body>
 </html>
